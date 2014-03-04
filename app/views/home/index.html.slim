@@ -1,4 +1,16 @@
-h3 Home
+= content_for :head  do 
+  = javascript_include_tag \ 
+  'amcharts_data',
+  'amcharts_plot1'
+h3 Ссылки
+ul
+  li = link_to 'Первая статичная страница', static_pages_page1_path
+  li = Rails.public_path
+
+h3 Список пользователей
 - @users.each do |user|
   p
     | User: #{link_to user.name, user}
+hr
+h3 Итоги конкурентного отбора 
+div id="chartdiv" style="width: 640px; height: 400px;"

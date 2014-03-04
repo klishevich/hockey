@@ -1,0 +1,7 @@
+h1 Список новостей
+p Тут будет список новостей
+- @articles.each do |article| 
+  h2 => article.title
+  p => article.body
+=> link_to 'Создать статью', new_article_path
+/=> link_to 'На главную', root_path %>
