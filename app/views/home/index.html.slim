@@ -4,8 +4,7 @@
   'amcharts_plot1'
 h3 Ссылки
 ul
-  li = link_to 'Первая статичная страница', static_pages_page1_path
-  li = Rails.public_path
+  li = link_to 'График Amchart с примером загрузки из файла', static_pages_page1_path
 
 h3 Список пользователей
 - @users.each do |user|
@@ -14,3 +13,4 @@ h3 Список пользователей
 hr
 h3 Итоги конкурентного отбора 
 div id="chartdiv" style="width: 640px; height: 400px;"
+h2 = t :hello

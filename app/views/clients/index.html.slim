@@ -1,0 +1,9 @@
+h1 Список клиентов
+= link_to 'Добавить клиента', new_client_path
+- @clients.each do |client| 
+  h2 = client.shortname
+  p = link_to client.fullname, client
+  p = client.inn
+  p = client.kpp
+  p = client.ogrn
+/=> link_to 'На главную', root_path %>

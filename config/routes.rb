@@ -6,6 +6,10 @@ Hockey::Application.routes.draw do
 
   get "static_pages/page3"
 
+  resources :clients do
+    resources :events
+  end 
+
   resources :articles
 
   authenticated :user do

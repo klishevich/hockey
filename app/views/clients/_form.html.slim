@@ -1,0 +1,33 @@
+= form_for(@client) do |f|
+  .field
+    = f.label :client_type 
+    = f.text_field :client_type
+  .field
+    = f.label :inn 
+    = f.text_field :inn
+  .field
+    = f.label :kpp
+    = f.text_field :kpp
+  .field
+    = f.label :ogrn
+    = f.text_field :ogrn
+  .field
+    = f.label :fullname
+    = f.text_field :fullname
+  .field
+    = f.label :shortname
+    = f.text_field :shortname
+  .field
+    = f.label :index
+    = f.text_field :index
+  .field
+    = f.label :country
+    = f.text_field :country
+  .field
+    = f.label :city
+    = f.text_field :city
+  .field
+    = f.label :address
+    = f.text_field :address 
+  .actions
+    = f.submit

@@ -1,0 +1,36 @@
+h1 Просмотр клиента
+= link_to 'Редактировать', edit_client_path(@client)
+br
+= link_to 'Список клиентов', clients_path  
+= form_for(@client) do |f|
+  .field
+    = f.label :client_type 
+    = f.text_field :client_type, disabled: true 
+  .field
+    = f.label :inn 
+    = f.text_field :inn, disabled: true 
+  .field
+    = f.label :kpp
+    = f.text_field :kpp, disabled: true 
+  .field
+    = f.label :ogrn
+    = f.text_field :ogrn, disabled: true 
+  .field
+    = f.label :fullname
+    = f.text_field :fullname, disabled: true 
+  .field
+    = f.label :shortname
+    = f.text_field :shortname, disabled: true 
+  .field
+    = f.label :index
+    = f.text_field :index, disabled: true 
+  .field
+    = f.label :country
+    = f.text_field :country, disabled: true 
+  .field
+    = f.label :city
+    = f.text_field :city, disabled: true 
+  .field
+    = f.label :address
+    = f.text_field :address , disabled: true   
+= render :partial => "events/event", :collection => @events 
