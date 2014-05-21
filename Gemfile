@@ -5,6 +5,9 @@ gem 'sqlite3'
 gem 'pg'
 gem 'capistrano'
 gem 'rvm-capistrano'
+gem "oauth-plugin", "~> 0.4.0"
+gem 'rabl'
+gem 'oj'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

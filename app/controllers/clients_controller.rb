@@ -1,16 +1,22 @@
 class ClientsController < ApplicationController
 
   def index
-    @clients = Client.all
+    inn = params[:inn]
+    kpp = params[:kpp]
+    respond_to do |format|
+      format.json {@clients = kpp.blank? ? Client.where(["inn = ?", inn]) 
+                        : Client.where(["inn = ? and kpp = ?", inn, kpp])}
+      format.html {@clients ||= Client.all}
+    end
   end
 
   def show
     @client = Client.find(params[:id])
-    respond_to do |format|  
-      format.html
-      # format.json  { render :json => @client.to_json(:include => {:events})}
-      format.json  { render :json => @client, :include => :events}
-    end
+    @events = @client.events
+    # respond_to do |format|  
+    #   format.html
+    #   format.json  { render :json => @client, :include => :events}
+    # end
   end
 
   def new
