@@ -1,0 +1,10 @@
+= form_for([@client, @client.events.build], remote: false) do |f|
+  br
+  .field
+    = f.label :event_description
+    = f.text_field :event_description
+  .field
+    = f.label :event_type
+    = f.text_field :event_type    
+  .actions
+    = submit_tag "Добавить событие", class: "btn btn-large btn-primary"

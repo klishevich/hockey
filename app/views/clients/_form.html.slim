@@ -1,7 +1,10 @@
 = form_for(@client) do |f|
   .field
-    = f.label :client_type 
-    = f.text_field :client_type
+    = f.label :shortname
+    = f.text_field :shortname
+  .field
+    = f.label :fullname
+    = f.text_field :fullname    
   .field
     = f.label :inn 
     = f.text_field :inn
@@ -11,12 +14,6 @@
   .field
     = f.label :ogrn
     = f.text_field :ogrn
-  .field
-    = f.label :fullname
-    = f.text_field :fullname
-  .field
-    = f.label :shortname
-    = f.text_field :shortname
   .field
     = f.label :index
     = f.text_field :index
@@ -29,5 +26,8 @@
   .field
     = f.label :address
     = f.text_field :address 
+  .field
+    = f.label :client_type 
+    = f.text_field :client_type    
   .actions
-    = f.submit
+    = submit_tag "Сохранить", class: "btn btn-large btn-primary"    

@@ -2,10 +2,15 @@ h1 Просмотр клиента
 = link_to 'Редактировать', edit_client_path(@client)
 br
 = link_to 'Список клиентов', clients_path  
+br
+br
 = form_for(@client) do |f|
   .field
-    = f.label :client_type 
-    = f.text_field :client_type, disabled: true 
+    = f.label :shortname
+    = f.text_field :shortname, disabled: true 
+  .field
+    = f.label :fullname
+    = f.text_field :fullname, disabled: true     
   .field
     = f.label :inn 
     = f.text_field :inn, disabled: true 
@@ -15,12 +20,6 @@ br
   .field
     = f.label :ogrn
     = f.text_field :ogrn, disabled: true 
-  .field
-    = f.label :fullname
-    = f.text_field :fullname, disabled: true 
-  .field
-    = f.label :shortname
-    = f.text_field :shortname, disabled: true 
   .field
     = f.label :index
     = f.text_field :index, disabled: true 
@@ -33,4 +32,13 @@ br
   .field
     = f.label :address
     = f.text_field :address , disabled: true   
-= render :partial => "events/event", :collection => @events 
+  .field
+    = f.label :client_type 
+    = f.text_field :client_type, disabled: true     
+- if !@client.events.blank?
+  h2 Список событий
+div id="events_form"
+  = render :partial => "events/event", :collection => @events 
+h2 Добавить событие
+div id="new_event_form"
+  = render "events/form"
