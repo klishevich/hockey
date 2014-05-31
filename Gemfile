@@ -44,3 +44,6 @@ group :test do
   gem 'email_spec'
   gem 'launchy'
 end
+
+gem 'savon', '~> 2.3.0'
+# gem 'wasabi', '~> 3.3.0'

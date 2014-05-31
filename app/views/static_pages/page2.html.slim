@@ -1,2 +1,27 @@
-h1 StaticPages#page2
-p Find me in app/views/static_pages/page2.html.slim
+h1 =link_to 'Soap client', static_pages_page2_path 
+div class="alert alert-info"
+  button type="button" class="close" data-dismiss="alert" ×
+  strong USA Zip code Information! 
+  br Поиск информации по почтовому коду США
+  = link_to 'http://www.webservicex.net/', 'http://www.webservicex.net/ws/WSDetails.aspx?WSID=42&CATID=7'
+h2 Входные данные
+fieldset
+  = form_tag static_pages_page2_path, :method => "get" do
+    p Введите zip-код, например 90210
+    div = text_field_tag :zip, params[:zip]
+    = submit_tag "Найти", :name => nil, class: "btn btn-large btn-primary" 
+h2 Результат
+table
+  tr
+    td style='width:120px;' State
+    td = @newzip.state if @newzip
+  tr
+    td City
+    td = @newzip.city if @newzip
+  tr 
+    td Area zone
+    td = @newzip.area_code if @newzip
+  tr 
+    td Time zone
+    td = @newzip.time_zone if @newzip
+
