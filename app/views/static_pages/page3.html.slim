@@ -1,2 +1,16 @@
-h1 StaticPages#page3
-p Find me in app/views/static_pages/page3.html.slim
+h1 =link_to 'Сервис СПАРК', static_pages_page3_path 
+div class="alert alert-info"
+  button type="button" class="close" data-dismiss="alert" ×
+  strong Полезный сервис! 
+  br Поиск в СПАРКе по ОГРНу
+  = link_to 'http://sparkgatetest.interfax.ru/IfaxWebService/ifaxwebservice.asmx', 'http://sparkgatetest.interfax.ru/IfaxWebService/ifaxwebservice.asmx'
+h2 Входные данные
+fieldset
+  = form_tag static_pages_page3_path, :method => "get" do
+    p Введите ОГРН/Телефон, например 1027700067328/4956209191
+    div = text_field_tag :ogrn, params[:ogrn]
+    p Выберите тип
+    div = select_tag :type, "<option>check_company_status</option><option>get_company_accounting_report</option><option>get_company_accounting_report_date_list</option><option>get_company_coowners_history</option><option>get_company_licenses</option><option>get_company_short_report</option><option>get_company_list_by_phone</option>".html_safe
+    = submit_tag "Найти", :name => nil, class: "btn btn-large btn-primary" 
+h2 Результат
+p = @spark.data if @spark

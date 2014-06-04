@@ -20,5 +20,6 @@ class StaticPagesController < ApplicationController
   end
 
   def page3
+    @spark = Spark.new(params[:ogrn],params[:type]) unless params[:ogrn].blank?
   end
 end
