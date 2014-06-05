@@ -21,5 +21,6 @@ class StaticPagesController < ApplicationController
 
   def page3
     @spark = Spark.new(params[:ogrn],params[:type]) unless params[:ogrn].blank?
+    @spark = Spark.new(params[:ogrn],params[:type]) if params[:type] == 'mon_get_companies_list'
   end
 end

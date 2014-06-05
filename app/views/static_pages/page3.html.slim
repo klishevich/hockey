@@ -1,16 +1,33 @@
 h1 =link_to 'Сервис СПАРК', static_pages_page3_path 
 div class="alert alert-info"
   button type="button" class="close" data-dismiss="alert" ×
-  strong Полезный сервис! 
-  br Поиск в СПАРКе по ОГРНу
-  = link_to 'http://sparkgatetest.interfax.ru/IfaxWebService/ifaxwebservice.asmx', 'http://sparkgatetest.interfax.ru/IfaxWebService/ifaxwebservice.asmx'
+  p
+    strong Полезный сервис!
+    span Поиск в СПАРКе по ОГРНу
+  p = link_to 'http://sparkgatetest.interfax.ru/IfaxWebService/ifaxwebservice.asmx', 'http://sparkgatetest.interfax.ru/IfaxWebService/ifaxwebservice.asmx'
+  p Описание методов СПАРКа
+  ul
+    li find_company_by_code - поиск ЮЛ по <b>ОГРН</b>, возвращает SparkID
+    li check_company_status - поиск по <b>ОГРН</b>, проверка действует ли компания
+    li get_company_accounting_report - по <b>ОГРН</b>, получение бухг. отчетности
+    li get_company_accounting_report_date_list - по <b>ОГРН</b>, метод возвращает список дат, на которые имеется отчетность
+    li get_company_coowners_history - по <b>ОГРН</b>, список бывших владельцев
+    li get_company_extended_report - по <b>ОГРН</b>, метод возвращает расширенную справку по компании.
+    li get_company_licenses - по <b>ОГРН</b>, метод возвращает список лицензий компании
+    li get_company_short_report - по <b>ОГРН</b>, метод возвращает краткую справку по компании
+    li get_company_structure - по <b>ОГРН</b>, структура компании
+    li mon_activate - по <b>ОГРН</b>, почему-то Access denied
+    li mon_get_companies_list - без параметров, почему-то Access denied
+    li mon_get_company_events - по <b>ОГРН</b>, Access denied
+    li get_company_list_by_phone - по <b>телефону</b>, метод служит для получения списка компаний по номеру телефона
 h2 Входные данные
 fieldset
   = form_tag static_pages_page3_path, :method => "get" do
-    p Введите ОГРН/Телефон, например 1027700067328/4956209191
+    p Введите ОГРН / Телефон / SparkID, например 1027700067328 / 4956209191 / 8564678
     div = text_field_tag :ogrn, params[:ogrn]
     p Выберите тип
-    div = select_tag :type, "<option>check_company_status</option><option>get_company_accounting_report</option><option>get_company_accounting_report_date_list</option><option>get_company_coowners_history</option><option>get_company_licenses</option><option>get_company_short_report</option><option>get_company_list_by_phone</option>".html_safe
+    div = select_tag :type, "<option></option><option>find_company_by_code</option><option>check_company_status</option><option>get_company_accounting_report</option><option>get_company_accounting_report_date_list</option><option>get_company_coowners_history</option><option>get_company_extended_report </option><option>get_company_licenses</option><option>get_company_short_report</option><option>get_company_structure</option><option>mon_activate</option><option>mon_get_companies_list </option><option>mon_get_company_events</option><option>get_company_list_by_phone</option>".html_safe
     = submit_tag "Найти", :name => nil, class: "btn btn-large btn-primary" 
 h2 Результат
 p = @spark.data if @spark
+ 
